@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class KeyController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.gameObject.GetComponent<PlayerController>() != null)
+        {
+            PlayerController playercontroller = collision.gameObject.GetComponent<PlayerController>();
+            playercontroller.PickUpKey();
+            Destroy(gameObject);
+        }
     }
 }

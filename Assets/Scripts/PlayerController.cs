@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 1f;
     private bool iscrouch=false;
     private bool isGrounded = true;
-   
+    private int score = 0;
     
    
     void Start()
@@ -101,6 +102,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-
+    public void PickUpKey()
+    {
+        score++;
+        Debug.Log("Current Score is : " + score);
+    }
 }
