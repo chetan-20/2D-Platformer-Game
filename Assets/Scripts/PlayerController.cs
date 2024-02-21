@@ -12,15 +12,15 @@ public class PlayerController : MonoBehaviour
     public float speed = 1f;
     private bool iscrouch=false;
     private bool isGrounded = true;
-    private int score = 0;
-    
+    public ScoreController scoreController;
    
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();         
         animator.SetBool("IsCrouching", false);
-        animator.SetBool("IsJumping", false);       
+        animator.SetBool("IsJumping", false);  
+        
     }
 
     // Update is called once per frame
@@ -104,7 +104,6 @@ public class PlayerController : MonoBehaviour
 
     public void PickUpKey()
     {
-        score++;
-        Debug.Log("Current Score is : " + score);
+        scoreController.UpdateScore(10);
     }
 }
