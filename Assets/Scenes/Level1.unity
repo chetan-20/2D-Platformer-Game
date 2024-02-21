@@ -265,15 +265,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6830574300006917780, guid: 6175e5a340be0e648a94be6522bebb59,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 342999132}
+    - targetCorrespondingSourceObject: {fileID: 6830574300006917780, guid: 6175e5a340be0e648a94be6522bebb59,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 342999134}
     - targetCorrespondingSourceObject: {fileID: 6830574300006917780, guid: 6175e5a340be0e648a94be6522bebb59,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 342999133}
-    - targetCorrespondingSourceObject: {fileID: 6830574300006917780, guid: 6175e5a340be0e648a94be6522bebb59,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 342999132}
   m_SourcePrefab: {fileID: 100100000, guid: 6175e5a340be0e648a94be6522bebb59, type: 3}
 --- !u!4 &342999130 stripped
 Transform:
@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 029e365fa87bb5c4e9ac912e7915b5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 7696871636353644043}
 --- !u!61 &342999133
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -328,7 +329,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0023784637, y: -0.014270306}
@@ -1943,15 +1944,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6830574300006917780, guid: 6175e5a340be0e648a94be6522bebb59,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 8988645160846123743}
+    - targetCorrespondingSourceObject: {fileID: 6830574300006917780, guid: 6175e5a340be0e648a94be6522bebb59,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 8988645160846123739}
     - targetCorrespondingSourceObject: {fileID: 6830574300006917780, guid: 6175e5a340be0e648a94be6522bebb59,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8988645160846123742}
-    - targetCorrespondingSourceObject: {fileID: 6830574300006917780, guid: 6175e5a340be0e648a94be6522bebb59,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8988645160846123743}
   m_SourcePrefab: {fileID: 100100000, guid: 6175e5a340be0e648a94be6522bebb59, type: 3}
 --- !u!1 &8988645160846123738 stripped
 GameObject:
@@ -2067,7 +2068,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0023784637, y: -0.014270306}
@@ -2095,6 +2096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 029e365fa87bb5c4e9ac912e7915b5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 7696871636353644043}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
