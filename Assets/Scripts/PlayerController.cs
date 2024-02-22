@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public Animator animator;
@@ -105,5 +105,21 @@ public class PlayerController : MonoBehaviour
     public void PickUpKey()
     {
         scoreController.UpdateScore(10);
+    }
+
+    public void KillPlayer()
+    {
+        animator.SetBool("IsDead", true);
+        
+    }
+    
+    //will be called once animation Ends
+    public void OnDeathAnimationEnd()
+    {
+        if (animator.GetBool("IsDead") == true)
+        {
+            animator.SetBool("IsDead", true);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
