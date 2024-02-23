@@ -29,13 +29,13 @@ public class MoveObject : MonoBehaviour
     {
         if (direction == 1)
         {
-            spriterenderer.flipX = true;
+            spriterenderer.flipX = false;
             return PointA.position;
             
         }
         else
         {   
-            spriterenderer.flipX = false;
+            spriterenderer.flipX = true;
             return PointB.position;
             
         }
