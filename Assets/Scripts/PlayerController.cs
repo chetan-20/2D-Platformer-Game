@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 public class PlayerController : MonoBehaviour
 {
     public Animator animator;
@@ -14,13 +15,32 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = true;
     public ScoreController scoreController;
     internal int lives = 3;
+    [SerializeField] GameObject heart1, heart2, heart3;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();         
         animator.SetBool("IsCrouching", false);
-        animator.SetBool("IsJumping", false);  
-        
+        animator.SetBool("IsJumping", false);
+       
+        heart1.SetActive(true);
+        heart2.SetActive(true);
+        heart3.SetActive(true);
+    }
+
+    private void UpdateLivesUI()
+    {
+        switch(lives)
+        {
+            case 2:
+                heart3.SetActive(false); 
+                break;
+            case 1:
+                heart2.SetActive(false);
+                break;
+            case 0: heart1.SetActive(false);
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -30,8 +50,8 @@ public class PlayerController : MonoBehaviour
         Flipx(horispeed);
         Move(horispeed);
         Jumpy();                   
-        Crouchy();                       
-                                 
+        Crouchy();
+        UpdateLivesUI();                         
     }
 
     void Move(float horispeed)
