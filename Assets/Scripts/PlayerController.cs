@@ -14,7 +14,9 @@ public class PlayerController : MonoBehaviour
     private bool iscrouch=false;
     private bool isGrounded = true;
     public ScoreController scoreController;
+    private bool canjump = false;
     internal int lives = 3;
+    
     [SerializeField] GameObject heart1, heart2, heart3;
     void Start()
     {
@@ -46,11 +48,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool ctrlpressed = Input.GetKey(KeyCode.LeftControl);
         float horispeed = Input.GetAxisRaw("Horizontal");
         Flipx(horispeed);
         Move(horispeed);
         Jumpy();                   
-        Crouchy();
+        Crouchy(ctrlpressed);
         UpdateLivesUI();                         
     }
 
@@ -76,31 +79,31 @@ public class PlayerController : MonoBehaviour
     }
     void Jumpy()
     {
-        if ( Input.GetKeyDown(KeyCode.Space)  && isGrounded == true){
+        
+        if ( Input.GetKeyDown(KeyCode.Space)  && isGrounded == true && canjump){
            
             animator.SetBool("IsJumping", true);           
             rb.velocity = new Vector2(rb.velocity.x, jump);
             isGrounded = false;
-            
+            canjump = false;
         }
-        else 
+        else if(!isGrounded)
         {
+           
             animator.SetBool("IsJumping", false);
             Standing();
         }
     }
 
-    void Crouchy()
+    void Crouchy(bool ctrlpress)
     {
-        if (Input.GetKey(KeyCode.LeftControl) && iscrouch==false)
+        if (ctrlpress && !iscrouch && isGrounded)
         {
             iscrouch = true;           
             animator.SetBool("IsCrouching", true);                                        
         }
-        else if (Input.GetKeyUp(KeyCode.LeftControl) && iscrouch==true)
-        {
-            iscrouch = false;
-            animator.SetBool("IsCrouching", false);
+        if (iscrouch && !ctrlpress )
+        {           
             Standing();
         }
         
@@ -110,7 +113,8 @@ public class PlayerController : MonoBehaviour
     void Standing()
     {
         animator.SetBool("IsCrouching", false);
-        animator.SetBool("IsJumping", false);            
+        animator.SetBool("IsJumping", false);
+        iscrouch=false;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -118,7 +122,17 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            canjump = true;
            
+        }
+        
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
         }
     }
 
