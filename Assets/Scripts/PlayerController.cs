@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private bool iscrouch=false;
     private bool isGrounded = true;
     public ScoreController scoreController;
-   
+    internal int lives = 3;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -109,8 +109,10 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
-        animator.SetBool("IsDead", true);
-        
+        if (lives <= 0)
+        {
+            animator.SetBool("IsDead", true);
+        }
     }
     
     //will be called once animation Ends

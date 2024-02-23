@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-
+            playerController.lives--;
             playerController.KillPlayer();
             
 
