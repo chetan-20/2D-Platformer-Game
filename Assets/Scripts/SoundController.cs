@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
-    public AudioSource clicksound;
+
+    /*public AudioSource clicksound;
 
     void Awake()
     {
@@ -22,5 +23,34 @@ public class SoundController : MonoBehaviour
     public void PlayClickSound()
     {
         clicksound.Play();
+    }*/
+    public static SoundController instance; // Static reference to the SoundController instance
+    public AudioSource clicksound;
+
+    void Awake()
+    {
+        // Ensure only one instance of SoundController exists
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    // Method to play the click sound
+    public void PlayClickSound()
+    {
+        if (clicksound != null)
+        {
+            clicksound.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Click sound not assigned to the SoundController.");
+        }
     }
 }

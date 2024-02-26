@@ -206,8 +206,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1444796487}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 816292607}
+        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
         m_MethodName: onBackButtonPress
         m_Mode: 1
         m_Arguments:
@@ -985,8 +985,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84f313eea38b2d428477f2435b76716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelScreen: {fileID: 0}
-  MenuScreen: {fileID: 0}
 --- !u!82 &730474805
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1096,6 +1094,7 @@ GameObject:
   - component: {fileID: 816292603}
   - component: {fileID: 816292602}
   - component: {fileID: 816292606}
+  - component: {fileID: 816292607}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1196,6 +1195,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816292601}
   m_Enabled: 1
+--- !u!114 &816292607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816292601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f364529ef80524eaf144cf8f3f9780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelScreen: {fileID: 1444796485}
+  MenuScreen: {fileID: 1534315688}
 --- !u!1 &1036575471
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,8 +1464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84f313eea38b2d428477f2435b76716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelScreen: {fileID: 1444796485}
-  MenuScreen: {fileID: 1534315688}
 --- !u!1 &1459249201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,8 +1646,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84f313eea38b2d428477f2435b76716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelScreen: {fileID: 1444796485}
-  MenuScreen: {fileID: 1534315688}
 --- !u!1 &1625635736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,8 +1874,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1534315690}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 816292607}
+        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
         m_MethodName: onLevelButtonPress
         m_Mode: 1
         m_Arguments:

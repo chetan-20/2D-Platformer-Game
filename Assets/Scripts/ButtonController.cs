@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class ButtonController : MonoBehaviour
 {
-    public GameObject LevelScreen;
-    public GameObject MenuScreen;
+    
     
     public void LoadNext()
     {
@@ -19,15 +18,15 @@ public class ButtonController : MonoBehaviour
         Application.Quit();
     }
 
-    public void onLevelButtonPress()
+   
+
+    public void RestartLevel()
     {
-        LevelScreen.SetActive(true);
-        MenuScreen.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    
-    public void onBackButtonPress()
+
+    public void LoadMenu()
     {
-        LevelScreen.SetActive(false);
-        MenuScreen.SetActive(true);
+        SceneManager.LoadScene(0);
     }
 }
