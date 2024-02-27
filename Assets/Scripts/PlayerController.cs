@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     public GameOver gameover;
     
     [SerializeField] GameObject heart1, heart2, heart3;
+    [SerializeField] AudioSource DeathSound;
+    [SerializeField] AudioSource JumpSound;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -86,6 +89,7 @@ public class PlayerController : MonoBehaviour
            
             animator.SetBool("IsJumping", true);           
             rb.velocity = new Vector2(rb.velocity.x, jump);
+            JumpSound.Play();
             isGrounded = false;
             canjump = false;
         }
@@ -148,6 +152,7 @@ public class PlayerController : MonoBehaviour
         if (lives <= 0)
         {
             animator.SetBool("IsDead", true);
+            DeathSound.Play();
         }
     }
     
@@ -156,7 +161,7 @@ public class PlayerController : MonoBehaviour
     {
         if (animator.GetBool("IsDead") == true)
         {
-
+           
            gameObject.SetActive(false);
            gameover.OnGameOver(); 
         }
