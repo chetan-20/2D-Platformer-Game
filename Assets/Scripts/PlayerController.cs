@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject heart1, heart2, heart3;
     [SerializeField] AudioSource DeathSound;
     [SerializeField] AudioSource JumpSound;
+    [SerializeField] AudioSource KeyPickUp;
+    [SerializeField] public AudioSource LiveLostSound;
 
     void Start()
     {
@@ -40,10 +42,12 @@ public class PlayerController : MonoBehaviour
         switch(lives)
         {
             case 2:
-                heart3.SetActive(false); 
+                heart3.SetActive(false);
+               
                 break;
             case 1:
                 heart2.SetActive(false);
+               
                 break;
             case 0: heart1.SetActive(false);
                 break;
@@ -86,10 +90,10 @@ public class PlayerController : MonoBehaviour
     {
         
         if ( Input.GetKeyDown(KeyCode.Space)  && isGrounded == true && canjump){
-           
+            JumpSound.Play();
             animator.SetBool("IsJumping", true);           
             rb.velocity = new Vector2(rb.velocity.x, jump);
-            JumpSound.Play();
+            
             isGrounded = false;
             canjump = false;
         }
@@ -143,8 +147,10 @@ public class PlayerController : MonoBehaviour
     }
 
     public void PickUpKey()
-    {
+    { 
+        KeyPickUp.Play();
         scoreController.UpdateScore(10);
+       
     }
 
     public void KillPlayer()
