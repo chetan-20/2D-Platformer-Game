@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private bool canjump = false;
     internal int lives = 3;
     public GameOver gameover;
-    
+    private FootstepsController footstepsController;
     [SerializeField] GameObject heart1, heart2, heart3;
     [SerializeField] AudioSource DeathSound;
     [SerializeField] AudioSource JumpSound;
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         heart1.SetActive(true);
         heart2.SetActive(true);
         heart3.SetActive(true);
-       
+      
     }
 
     private void UpdateLivesUI()
@@ -158,6 +158,7 @@ public class PlayerController : MonoBehaviour
         if (lives <= 0)
         {
             animator.SetBool("IsDead", true);
+            
             DeathSound.Play();
         }
     }
@@ -168,7 +169,7 @@ public class PlayerController : MonoBehaviour
         if (animator.GetBool("IsDead") == true)
         {
            
-           gameObject.SetActive(false);
+           
            gameover.OnGameOver(); 
         }
     }
