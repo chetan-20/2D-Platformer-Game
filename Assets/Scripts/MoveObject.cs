@@ -35,8 +35,8 @@ public class MoveObject : MonoBehaviour
             
         }
         else
-        {   
-            spriterenderer.flipX = true;
+        {
+            spriterenderer.flipX = true; 
             return PointB.position;
             
         }
