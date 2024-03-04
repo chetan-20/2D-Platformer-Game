@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool ctrlpressed = Input.GetKey(KeyCode.LeftControl);
+        bool ctrlpressed = Input.GetKeyDown(KeyCode.LeftControl);
         float horispeed = Input.GetAxisRaw("Horizontal");
         Flipx(horispeed);
         Move(horispeed);
