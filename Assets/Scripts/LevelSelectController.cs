@@ -6,9 +6,14 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+
  [RequireComponent(typeof(Button))]
 public class LevelSelectController : MonoBehaviour
 {
+  
+
+
     [SerializeField] string LevelName;
     private Button button;
     private void Awake()
@@ -19,6 +24,19 @@ public class LevelSelectController : MonoBehaviour
 
     private void OnClick()
     {
-        SceneManager.LoadScene(LevelName);
+        LevelManager.LevelStatus levelStatus = LevelManager.Instance.GetLevelStatus(LevelName);
+        switch (levelStatus)
+        {
+            case LevelManager.LevelStatus.Locked :
+                Debug.Log("Level is Locked");
+                break;
+            case LevelManager.LevelStatus.Unlocked:
+                SceneManager.LoadScene(LevelName);
+                break;
+            case LevelManager.LevelStatus.Completed:
+                SceneManager.LoadScene(LevelName);
+                break;
+        }
+        
     }
 }

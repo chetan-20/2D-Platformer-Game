@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();         
         animator.SetBool("IsCrouching", false);

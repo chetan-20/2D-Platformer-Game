@@ -15,6 +15,7 @@ public class PauseMenuScript : MonoBehaviour
     [SerializeField] private Button button;
     private void Start()
     {
+        Time.timeScale = 1f;//if we go from pause to menu , we need to reset this once game starts again via menu
         button.onClick.AddListener(Onclick);
     }
 

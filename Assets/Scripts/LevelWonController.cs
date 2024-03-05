@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelWonController : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class LevelWonController : MonoBehaviour
             Level.SetActive(false);
             LevelWon.SetActive(true);
            ScoreUI.SetActive(false);
+            LevelManager.Instance.MarkCurrentLevelComplete();
         }
     }
 }
