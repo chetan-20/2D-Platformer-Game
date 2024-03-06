@@ -24,17 +24,21 @@ public class LevelSelectController : MonoBehaviour
 
     private void OnClick()
     {
+        ;
         LevelManager.LevelStatus levelStatus = LevelManager.Instance.GetLevelStatus(LevelName);
         switch (levelStatus)
         {
             case LevelManager.LevelStatus.Locked :
                 Debug.Log("Level is Locked");
+                SoundController.Instance.PlaySound(Sounds.LevelLockedSound);
                 break;
             case LevelManager.LevelStatus.Unlocked:
                 SceneManager.LoadScene(LevelName);
+                SoundController.Instance.PlaySound(Sounds.ButtonClick);
                 break;
             case LevelManager.LevelStatus.Completed:
                 SceneManager.LoadScene(LevelName);
+                SoundController.Instance.PlaySound(Sounds.LevelCompleteSound);
                 break;
         }
         

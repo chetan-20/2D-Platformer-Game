@@ -11,10 +11,12 @@ public class MenuHandler : MonoBehaviour
     {
         LevelScreen.SetActive(true);
         MenuScreen.SetActive(false);
+        SoundController.Instance.PlaySound(Sounds.ButtonClick);
     }
 
     public void onBackButtonPress()
     {
+        SoundController.Instance.PlaySound(Sounds.ButtonClick);
         LevelScreen.SetActive(false);
         MenuScreen.SetActive(true);
     }

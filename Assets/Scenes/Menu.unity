@@ -1748,7 +1748,7 @@ GameObject:
   - component: {fileID: 1413703427}
   - component: {fileID: 1413703428}
   m_Layer: 0
-  m_Name: BackgroundMusic
+  m_Name: AudioObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1782,6 +1782,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497aa5749a49317458bf673d6f05104e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundEffect: {fileID: 0}
+  Music: {fileID: 0}
+  Sounds: []
 --- !u!1 &1444796485
 GameObject:
   m_ObjectHideFlags: 0
