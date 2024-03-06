@@ -16,13 +16,9 @@ public class PlayerController : MonoBehaviour
     public ScoreController scoreController;
     private bool canjump = false;
     internal int lives = 3;
-    public GameOver gameover;
-    private FootstepsController footstepsController;
+    public GameOver gameover; 
     [SerializeField] GameObject heart1, heart2, heart3;
-    [SerializeField] AudioSource DeathSound;
-    [SerializeField] AudioSource JumpSound;
-    [SerializeField] AudioSource KeyPickUp;
-    [SerializeField] public AudioSource LiveLostSound;
+    
 
     void Start()
     {
@@ -64,14 +60,18 @@ public class PlayerController : MonoBehaviour
         Move(horispeed);
         Jumpy();                   
         Crouchy(ctrlpressed);
-        UpdateLivesUI();                         
+        UpdateLivesUI();
+        SoundController.Instance.PlayFootStep(lives);
     }
 
     void Move(float horispeed)
     {
-        Vector2 newposition = transform.position;
-        newposition.x += horispeed*speed*Time.deltaTime;
-        transform.position = newposition;
+       
+           
+            Vector2 newposition = transform.position;
+            newposition.x += horispeed * speed * Time.deltaTime;
+            transform.position = newposition;
+        
     }
     void Flipx(float horispeed)
     {
@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
     {
         
         if ( Input.GetKeyDown(KeyCode.Space)  && isGrounded == true && canjump){
-            JumpSound.Play();
+            SoundController.Instance.PlaySound(Sounds.JumpSound);
             animator.SetBool("IsJumping", true);           
             rb.velocity = new Vector2(rb.velocity.x, jump);
             
@@ -111,7 +111,8 @@ public class PlayerController : MonoBehaviour
         if (ctrlpress && !iscrouch && isGrounded)
         {
             iscrouch = true;           
-            animator.SetBool("IsCrouching", true);                                        
+            animator.SetBool("IsCrouching", true);
+            SoundController.Instance.PlaySound(Sounds.CrouchSound);
         }
         if (iscrouch && !ctrlpress )
         {           
@@ -148,8 +149,8 @@ public class PlayerController : MonoBehaviour
     }
 
     public void PickUpKey()
-    { 
-        KeyPickUp.Play();
+    {
+        SoundController.Instance.PlaySound(Sounds.KeyPickUpSound);
         scoreController.UpdateScore(10);
        
     }
@@ -159,8 +160,8 @@ public class PlayerController : MonoBehaviour
         if (lives <= 0)
         {
             animator.SetBool("IsDead", true);
-            
-            DeathSound.Play();
+
+            SoundController.Instance.PlaySound(Sounds.DeathSound);
         }
     }
     

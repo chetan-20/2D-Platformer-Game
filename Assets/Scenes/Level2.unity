@@ -1388,10 +1388,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 450974853}
-    - targetCorrespondingSourceObject: {fileID: 2700822902041246952, guid: b6ff3015173373d47b0942f9d4bc064d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 450974852}
   m_SourcePrefab: {fileID: 100100000, guid: b6ff3015173373d47b0942f9d4bc064d, type: 3}
 --- !u!1 &450974848 stripped
 GameObject:
@@ -1425,10 +1421,6 @@ MonoBehaviour:
   heart1: {fileID: 2081642632}
   heart2: {fileID: 1809573410}
   heart3: {fileID: 1248954424}
-  DeathSound: {fileID: 1736311871}
-  JumpSound: {fileID: 1357786298}
-  KeyPickUp: {fileID: 1481038064}
-  LiveLostSound: {fileID: 1288662302}
 --- !u!95 &450974851
 Animator:
   serializedVersion: 5
@@ -1450,19 +1442,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &450974852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450974848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 039488069d73da24582cba12cfd35959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  footstepsSound: {fileID: 1469220403}
 --- !u!50 &450974853
 Rigidbody2D:
   serializedVersion: 4
@@ -5414,7 +5393,6 @@ MonoBehaviour:
   LevelWon: {fileID: 488922733}
   Player: {fileID: 450974848}
   ScoreUI: {fileID: 762526506}
-  footsteep: {fileID: 1469220403}
 --- !u!61 &1260991520
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6079,7 +6057,6 @@ GameObject:
   - component: {fileID: 1341867859}
   - component: {fileID: 1341867857}
   - component: {fileID: 1341867855}
-  - component: {fileID: 1341867858}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6137,14 +6114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84f313eea38b2d428477f2435b76716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!81 &1341867858
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341867854}
-  m_Enabled: 1
 --- !u!114 &1341867859
 MonoBehaviour:
   m_ObjectHideFlags: 0

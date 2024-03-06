@@ -10,7 +10,7 @@ public class RestartOnFall : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerController>() != null)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
+            SoundController.Instance.PlaySound(Sounds.LevelFallOffSound);
         }
     }
 }

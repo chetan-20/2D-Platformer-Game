@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
         {
             collisionoccured = true;
             playerController.lives--;
-            playerController.LiveLostSound.Play();
+            SoundController.Instance.PlaySound(Sounds.HealthLostSound);
             playerController.KillPlayer();
             
 

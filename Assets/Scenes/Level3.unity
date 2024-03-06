@@ -1797,7 +1797,6 @@ GameObject:
   - component: {fileID: 698961609}
   - component: {fileID: 698961607}
   - component: {fileID: 698961605}
-  - component: {fileID: 698961608}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1855,14 +1854,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84f313eea38b2d428477f2435b76716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!81 &698961608
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698961604}
-  m_Enabled: 1
 --- !u!114 &698961609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4206,10 +4197,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1511438000}
-    - targetCorrespondingSourceObject: {fileID: 2700822902041246952, guid: b6ff3015173373d47b0942f9d4bc064d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1511437999}
   m_SourcePrefab: {fileID: 100100000, guid: b6ff3015173373d47b0942f9d4bc064d, type: 3}
 --- !u!1 &1511437995 stripped
 GameObject:
@@ -4237,16 +4224,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1511437998}
   jump: 3
-  speed: 10
+  speed: 1
   scoreController: {fileID: 978473433}
   gameover: {fileID: 698961605}
   heart1: {fileID: 1497290638}
   heart2: {fileID: 58552869}
   heart3: {fileID: 655327716}
-  DeathSound: {fileID: 1740845193}
-  JumpSound: {fileID: 439960768}
-  KeyPickUp: {fileID: 1480858507}
-  LiveLostSound: {fileID: 1637808678}
 --- !u!95 &1511437998
 Animator:
   serializedVersion: 5
@@ -4268,19 +4251,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1511437999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511437995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 039488069d73da24582cba12cfd35959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  footstepsSound: {fileID: 1636008080}
 --- !u!50 &1511438000
 Rigidbody2D:
   serializedVersion: 4
@@ -4477,7 +4447,6 @@ MonoBehaviour:
   LevelWon: {fileID: 1421981477}
   Player: {fileID: 1511437995}
   ScoreUI: {fileID: 919432521}
-  footsteep: {fileID: 1636008080}
 --- !u!61 &1609401685
 BoxCollider2D:
   m_ObjectHideFlags: 0

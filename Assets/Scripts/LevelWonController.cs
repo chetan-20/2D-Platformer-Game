@@ -9,7 +9,7 @@ public class LevelWonController : MonoBehaviour
     public GameObject LevelWon;
     public GameObject Player;
     public GameObject ScoreUI;
-    [SerializeField] AudioSource footsteep;
+  
     
         
     
@@ -18,12 +18,13 @@ public class LevelWonController : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerController>() != null)
         {
-            footsteep.enabled = false;
+           
             Player.SetActive(false);
             Level.SetActive(false);
             LevelWon.SetActive(true);
            ScoreUI.SetActive(false);
             LevelManager.Instance.MarkCurrentLevelComplete();
+            SoundController.Instance.PlaySound(Sounds.LevelCompleteSound);
         }
     }
 }

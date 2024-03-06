@@ -22,6 +22,7 @@ public class PauseMenuScript : MonoBehaviour
     private void Onclick()
     {
         SceneManager.LoadScene(0);
+        SoundController.Instance.PlaySound(Sounds.ButtonClick);
     }
 
     // Update is called once per frame

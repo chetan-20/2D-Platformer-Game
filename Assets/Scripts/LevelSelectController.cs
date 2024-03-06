@@ -38,7 +38,7 @@ public class LevelSelectController : MonoBehaviour
                 break;
             case LevelManager.LevelStatus.Completed:
                 SceneManager.LoadScene(LevelName);
-                SoundController.Instance.PlaySound(Sounds.LevelCompleteSound);
+                SoundController.Instance.PlaySound(Sounds.ButtonClick);
                 break;
         }
         
