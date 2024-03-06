@@ -7,7 +7,7 @@ public class SoundController : MonoBehaviour
 {
     private static SoundController instance;
     public static SoundController Instance { get { return instance; } }
-
+    private bool isFootstepPlaying = false;
     public AudioSource SoundEffect;
     public AudioSource SoundMusic;
     public AudioSource SoundFootStep;
@@ -55,26 +55,33 @@ public class SoundController : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && !isFootstepPlaying)
             {
-
-
                 SoundFootStep.enabled = true;
+                isFootstepPlaying = true;
+
+                // Play footstep sound
                 SoundFootStep.Play();
 
+                StartCoroutine(ResetFootstepPlayingFlag());
             }
             else if (lives <= 0)
             {
                 SoundFootStep.enabled = false;
-
+                isFootstepPlaying = false;
             }
             else
             {
                 SoundFootStep.enabled = false;
+                isFootstepPlaying = false;
             }
         }
     }
-
+    private IEnumerator ResetFootstepPlayingFlag()
+    {
+        yield return new WaitForSeconds(SoundFootStep.clip.length); // Wait for the footstep sound to finish
+        isFootstepPlaying = false; // Reset the flag
+    }
     public void Mute(bool status)
     {
         IsMute = status;
