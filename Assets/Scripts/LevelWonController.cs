@@ -18,7 +18,7 @@ public class LevelWonController : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerController>() != null)
         {
-           
+            SoundController.Instance.StopFootSound();
             Player.SetActive(false);
             Level.SetActive(false);
             LevelWon.SetActive(true);

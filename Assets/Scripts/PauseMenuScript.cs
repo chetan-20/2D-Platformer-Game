@@ -43,6 +43,7 @@ public class PauseMenuScript : MonoBehaviour
             Player.SetActive(false);
             PauseMenuUI.SetActive(true);
             ScoreUI.SetActive(false);
+            SoundController.Instance.StopFootSound();
         }
         else
         {

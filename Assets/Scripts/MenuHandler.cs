@@ -21,4 +21,10 @@ public class MenuHandler : MonoBehaviour
         MenuScreen.SetActive(true);
     }
 
+    public void ToggleSound()
+    {
+        SoundController.Instance.PlaySound(Sounds.ButtonClick);        
+        SoundController.Instance.IsMute = !SoundController.Instance.IsMute;
+        SoundController.Instance.PlayMusic(Sounds.BGMusic);
+    }
 }

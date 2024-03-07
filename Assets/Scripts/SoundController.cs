@@ -33,6 +33,7 @@ public class SoundController : MonoBehaviour
     {
         if (IsMute)
         {
+            SoundMusic.Stop();
             return;
         }
         AudioClip clip = GetSoundClip(sound);
@@ -49,26 +50,37 @@ public class SoundController : MonoBehaviour
 
     public void PlayFootStep(float horispeed)
     {
-        if (horispeed!=0)
+        if (IsMute)
         {
-            footstepsSound.enabled = true;
-           
+            
+            return;
         }
         else
         {
-            footstepsSound.enabled = false;
+            if (horispeed != 0)
+            {
+                footstepsSound.enabled = true;
+
+            }
+            else
+            {
+                footstepsSound.enabled = false;
+            }
         }
     
+    
+ }
+    public void StopFootSound()
+    {
+        footstepsSound.enabled=false;
     }
 
-    public void Mute(bool status)
-    {
-        IsMute = status;
-    }
+   
     public void PlaySound(Sounds sound)
     {
         if (IsMute)
         {
+            
             return;
         }
         AudioClip clip = GetSoundClip(sound);
