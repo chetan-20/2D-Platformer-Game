@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         Jumpy();                   
         Crouchy(ctrlpressed);
         UpdateLivesUI();
-        SoundController.Instance.PlayFootStep(lives);
+       SoundController.Instance.PlayFootStep(horispeed);
        
     }
 

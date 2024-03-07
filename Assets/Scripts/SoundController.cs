@@ -7,10 +7,10 @@ public class SoundController : MonoBehaviour
 {
     private static SoundController instance;
     public static SoundController Instance { get { return instance; } }
-    private bool isFootstepPlaying = false;
+    public AudioSource footstepsSound;
     public AudioSource SoundEffect;
     public AudioSource SoundMusic;
-    public AudioSource SoundFootStep;
+   
     public bool IsMute=false;
     public SoundType[] Sounds; 
     void Awake()
@@ -47,41 +47,20 @@ public class SoundController : MonoBehaviour
         }
     }
 
-    public void PlayFootStep(int lives)
+    public void PlayFootStep(float horispeed)
     {
-        if (IsMute)
+        if (horispeed!=0)
         {
-            return;
+            footstepsSound.enabled = true;
+           
         }
         else
         {
-            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && !isFootstepPlaying)
-            {
-                SoundFootStep.enabled = true;
-                isFootstepPlaying = true;
-
-                // Play footstep sound
-                SoundFootStep.Play();
-
-                StartCoroutine(ResetFootstepPlayingFlag());
-            }
-            else if (lives <= 0)
-            {
-                SoundFootStep.enabled = false;
-                isFootstepPlaying = false;
-            }
-            else
-            {
-                SoundFootStep.enabled = false;
-                isFootstepPlaying = false;
-            }
+            footstepsSound.enabled = false;
         }
+    
     }
-    private IEnumerator ResetFootstepPlayingFlag()
-    {
-        yield return new WaitForSeconds(SoundFootStep.clip.length); // Wait for the footstep sound to finish
-        isFootstepPlaying = false; // Reset the flag
-    }
+
     public void Mute(bool status)
     {
         IsMute = status;
