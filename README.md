@@ -17,3 +17,5 @@ Added UI to show score when Keys are collected.
 Made Level Select UI , Menu Ui , Pause Screen Ui , Game Over Ui , Level Won UI.
 
 Made singleton for level unlock and Sounds.
+
+WebGl Link : https://chet00.itch.io/2d-platformer-game
