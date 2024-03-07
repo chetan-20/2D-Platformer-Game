@@ -14,5 +14,6 @@ public class GameOver : MonoBehaviour
         GameOverUI.SetActive(true);
         Level.SetActive(false);
         ScoreUI.SetActive(false);
+        SoundController.Instance.StopFootSound();
     }
 }
